@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { fromImageToUrl } from '../utils/urls';
 
 export default function Home() {
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function Home() {
         <div key={product.attributes.name}>
           <div className={styles.product__Row}>
             <div className={styles.product__ColImg}>
-              <img src="" />
+              <img src={fromImageToUrl(product.attributes.image)} />
             </div>
             <div className={styles.product__Col}>
               {product.attributes.name} - {product.attributes.price}
